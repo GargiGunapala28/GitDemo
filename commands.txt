@@ -3,3 +3,4 @@ git add filename
 git commit -m "message"
 git branch
 git push origin main
+git clone <ssh>
