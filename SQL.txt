@@ -1,8 +1,11 @@
 **Database**
+
 CREATE DATABASE myDB;
 USE myDB;
 DROP database myDB;
 ALTER DATABASE myDB READ ONLY = 1;
+
+------------------------------------------------------------------------------------------------------------------------------------
 
 **TABLE**
 
@@ -50,8 +53,9 @@ AFTER last_name;
 ALTER TABLE employees
 DROP COLUMN email;
 
-**Adding Rows**
+------------------------------------------------------------------------------------------------------------------------------------
 
+**Adding Rows**
 
 INSERT INTO employees 
 VALUES (1, "Eugene", "Krabs", 25.50, "2024-01-02"),  
@@ -64,3 +68,40 @@ INSERT INTO employees (employee_id, first_name, last_name)
 VALUES (6, "Sheldon", "Plankton");
 
 SELECT * FROM employees;
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**Selecting**
+
+//everything
+SELECT * FROM employees;
+
+//specific column
+SELECT first_name,last_name FROM employees;
+SELECT last_name,first_name FROM employees;
+
+//WHERE
+SELECT * FROM employees
+WHERE employee_id = 1;
+
+SELECT * FROM employees
+WHERE hourly_pay >= 15;
+
+SELECT * FROM employees
+WHERE hire_date <= "2024-01-03";
+
+SELECT * FROM employees
+WHERE employee_id != 1;
+
+SELECT * FROM employees
+WHERE hire_date IS NULL;
+
+SELECT * FROM employees
+WHERE hire_date IS NOT NULL;
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
