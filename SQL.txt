@@ -1,4 +1,51 @@
+**Database**
 CREATE DATABASE myDB;
 USE myDB;
 DROP database myDB;
 ALTER DATABASE myDB READ ONLY = 1;
+
+**TABLE**
+
+//Creation
+CREATE TABLE employees (
+    employee_id INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    hourly_pay DECIMAL(5,2),
+    hire_date DATE
+);
+
+//display
+SELECT * FROM employees;
+
+//Renaming
+RENAME TABLE employees to workers;
+RENAME TABLE workers to employees;
+
+//Dropping
+DROP TABLE employees;
+
+//Adding column
+ALTER TABLE employees
+ADD phone_number VARCHAR(15);
+
+//Dropping column
+ALTER TABLE employees
+DROP COLUMN phone_number;
+
+//Renaming a column
+ALTER TABLE employees
+RENAME COLUMN phone_number to email;
+
+//modifying column datatype
+ALTER TABLE employees
+MODIFY COLUMN email VARCHAR(100);
+
+//Re-ording
+ALTER TABLE employees
+MODIFY email VARCHAR(100)
+AFTER last_name;
+
+//dropping column email
+ALTER TABLE employees
+DROP COLUMN email;
