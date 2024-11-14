@@ -136,6 +136,21 @@ SELECT * FROM employees;
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
+**CURRENT DATE AND CURRENT TIME**
+
+CREATE TABLE test (
+    my_date DATE,
+    my_time TIME,
+    my_datetime DATETIME
+);
+
+INSERT INTO test VALUES(CURRENT_DATE(),CURRENT_TIME(),NOW());
+
+INSERT INTO test 
+VALUES (CURRENT_DATE() + 1,NULL,NULL),
+       (NULL, CURRENT_TIME() +1, NULL),
+       (NULL, NULL, NOW() + 1),
+       (CURRENT_DATE() - 1,NULL,NULL);
 
 
 
