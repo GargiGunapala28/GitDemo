@@ -152,5 +152,53 @@ VALUES (CURRENT_DATE() + 1,NULL,NULL),
        (NULL, NULL, NOW() + 1),
        (CURRENT_DATE() - 1,NULL,NULL);
 
+------------------------------------------------------------------------------------------------------------------------------------
+
+**UNIQUE**
+
+CREATE TABLE products (
+    product_id INT,
+    product_name VARCHAR(25),
+    price DECIMAL(4,2)
+);
+
+INSERT INTO products 
+VALUES (100, "Hamburger", 3.99),
+	   (101, "Fries", 1.89),
+       (102, "Soda", 1.00),
+       (103, "ice cream", 1.49);
+
+INSERT INTO products 
+VALUES (100, "Fries", 3.99); (X)
+
+INSERT INTO products 
+VALUES (100, "Fries", 4.99); (X)
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**NOT NULL**
+
+ALTER TABLE products
+MODIFY price DECIMAL(4,2) NOT NULL;
+
+ALTER TABLE products
+ADD CONSTRAINT
+UNIQUE(product_id);
+
+INSERT INTO products 
+VALUES (104, "Fries", NULL); (X)
+
+INSERT INTO products 
+VALUES (104, "Fries", 0);
+
+UPDATE products
+SET price = 1.75
+WHERE product_id = 104;
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**CHECK**
+
+
 
 
