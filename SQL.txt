@@ -199,6 +199,76 @@ WHERE product_id = 104;
 
 **CHECK**
 
+CREATE TABLE employees (
+    employee_id INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    hourly_pay DECIMAL(5,2),
+    hire_date DATE,
+    CONSTRAINT chk_hourly_pay CHECK(hourly_pay >= 10.00)
+);
+
+ALTER TABLE employees
+ADD CONSTRAINT chk_hourly_pay CHECK(hourly_pay >= 10.00);
+
+INSERT INTO employees VALUES (6, "Sheldon", "Plankton", 5.00, "2024-1-7"); (X)
+
+//To alter: drop and add new check
+
+ALTER TABLE employees
+DROP CHECK chk_hourly_pay;
+
+ALTER TABLE employees
+ADD CONSTRAINT chk_hourly_pay CHECK(hourly_pay >= 7.50);
+
+INSERT INTO employees VALUES (6, "Sheldon", "Plankton", 8.00, "2024-1-7"); 
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**DEFAULT**
+
+SELECT * FROM products;
+
+INSERT INTO products VALUES (105,"straw",0.00); 
+DELECT FROM products WHERE products_id >= 105;
+
+CREATE TABLE products (
+    product_id INT,
+    product_name VARCHAR(25),
+    price DECIMAL(4,2) DEFAULT 0.00
+);
+
+ALTER TABLE products
+ALTER price SET default 0.00;
+
+INSERT INTO products (product_id, product_name)
+VALUES (105,"straw");
+
+INSERT INTO products (product_id, product_name)
+VALUES (106,"napkin"),
+       (107,"fork"),
+       (108,"spoon");
+
+
+CREATE TABLE transactions(
+    transaction_id INT,
+    amount DECIMAL(5,2),
+    transaction_date DATETIME DEFAULT NOW()
+);
+
+INSERT INTO transactions (transaction_id, amount)
+VALUES (1,4.99), (2,2.89), (3,8.37);
+
+DROP TABLE transactions;
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 
 
